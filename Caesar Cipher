@@ -3,21 +3,38 @@
 
 
 def convert_to_Caesar(text):
+    #the methode check the string
     processed_string = ''
-    if(not isinstance(text, str)):
-        # if the input is not a string returns None
-        return None
-    # iterate through text and update processed_string
     for position in text:
         if(position == '.'):
-            # use X for full stop
+            # X is for full stop
             processed_string += 'X'
-        # isalpha tests if position is a letter: returns false for numbers
+        # isalpha test if position is a letter: returns false for numbers
         # and punctuation
         elif(position.isalpha()):
+            #keep and/or change all the letter to Uppercase
             processed_string += position.upper()
     return processed_string
 
+
+
+####    main program
+
+#user input the text to convert
+UserInput=input("Enter your text : ")
+#the methode conver the string
+convertion=convert_to_Caesar(UserInput)
+print("the convertion is : " , convertion)
+
+
+
+
+
+
+
+
+
+'''#Automatic testing as per the testing table
 def main():
     # Test 1
     result= convert_to_Caesar('Who are you ??')
@@ -82,9 +99,9 @@ def main():
     # Test 11
     result= convert_to_Caesar("Xx .x")
     if (result == 'XXXX'):
-        print('Test 12 OK')
+        print('Test 11 OK')
     else:
-        print('Test 12 error: ' + result)
+        print('Test 11 error: ' + result)
     
 if __name__ == '__main__':
-    main()
+    main()'''
