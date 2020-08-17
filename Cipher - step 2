@@ -1,0 +1,92 @@
+# Author: LEKO
+# Date: 04/08/2020
+
+#TASK 2
+
+def encrypt_Caesar(string, shift):
+ #the methode encrypt the string
+  cipher = ''
+  for char in string: 
+    if char == ' ':
+      cipher = cipher + char
+    else :
+    #the ord() method using the ASICC number -65 (for Uppercase)
+      cipher = cipher + chr((ord(char) + shift - 65) % 26 + 65)
+  #program return the string encrypted
+  return cipher
+
+####    main program
+
+text = input("Enter a text : ")
+s = int(input("Enter a shift number : "))
+print("The original text : ", text)
+print("The encryption : ", encrypt_Caesar(text, s))
+
+
+
+#Automatic testing as per the testing table
+def main():
+    # Test 1
+    result= encrypt_Caesar('LOL', 5)
+    if (result == 'QTQ'):
+        print('Test 1 OK')
+    else:
+        print('Test 1 error: ' + result)
+    # Test 2
+    result= encrypt_Caesar('HELLO', 2)
+    if (result == 'JGNNQ'):
+        print('Test 2 OK')
+    else:
+        print('Test 2 error: ' + result)
+    # Test 3
+    result= encrypt_Caesar('SETGSKOYTOIU', -6)
+    if (result == 'MYNAMEISNICO'):
+        print('Test 3 OK')
+    else:
+        print('Test 3 error: ' + result)
+    # Test 4
+    result= encrypt_Caesar('COUCOU', 9)
+    if (result == 'LXDLXD'):
+        print('Test 4 OK')
+    else:
+        print('Test 4 error: ' + result)
+    # Test 5
+    result= encrypt_Caesar('SNHT', -5)
+    if (result == 'NICO'):
+        print('Test 5 OK')
+    else:
+        print('Test 5 error: ' + result)
+    # Test 6
+    result= encrypt_Caesar('PSG', 19)
+    if (result == 'ILZ'):
+        print('Test 6 OK')
+    else:
+        print('Test 6 error: ' + result)
+    # Test 7
+    result= encrypt_Caesar('ABCDE', 1)
+    if (result == 'BCDEF'):
+        print('Test 7 OK')
+    else:
+        print('Test 7 error: ' + result)
+    # Test 8
+    result= encrypt_Caesar('LOL', 5)
+    if (result == 'QTQ'):
+        print('Test 8 OK')
+    else:
+        print('Test 8 error: ' + result)
+    # Test 9
+    result= encrypt_Caesar('TAFE', 7)
+    if (result == 'AHML'):
+        print('Test 9 OK')
+    else:
+        print('Test 9 error: ' + result)
+    # Test 10
+    result= encrypt_Caesar('BRISBANE', 26)
+    if (result == 'BRISBANE'):
+        print('Test 10 OK')
+    else:
+        print('Test 10 error: ' + result)
+
+
+if __name__ == '__main__':
+    main()
