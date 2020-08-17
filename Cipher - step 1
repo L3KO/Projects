@@ -1,0 +1,107 @@
+# Author: LEKO
+# Date: 21/07/2020
+
+
+def convert_to_Caesar(text):
+    #the methode check the string
+    processed_string = ''
+    for position in text:
+        if(position == '.'):
+            # X is for full stop
+            processed_string += 'X'
+        # isalpha test if position is a letter: returns false for numbers
+        # and punctuation
+        elif(position.isalpha()):
+            #keep and/or change all the letter to Uppercase
+            processed_string += position.upper()
+    return processed_string
+
+
+
+####    main program
+
+#user input the text to convert
+UserInput=input("Enter your text : ")
+#the methode conver the string
+convertion=convert_to_Caesar(UserInput)
+print("the convertion is : " , convertion)
+
+
+
+
+
+
+
+
+
+'''#Automatic testing as per the testing table
+def main():
+    # Test 1
+    result= convert_to_Caesar('Who are you ??')
+    if (result == 'WHOAREYOU'):
+        print('Test 1 OK')
+    else:
+        print('Test 1 error: ' + result)
+    # Test 2
+    result= convert_to_Caesar("Wait, it’s me.")
+    if (result == 'WAITITSMEX'):
+        print('Test 2 OK')
+    else:
+        print('Test 2 error: ' + result)
+    # Test 3
+    result= convert_to_Caesar('I am 20 years old.')
+    if (result == 'IAMYEARSOLDX'):
+        print('Test 3 OK')
+    else:
+        print('Test 3 error: ' + result)
+    # Test 4
+    result= convert_to_Caesar('My name is Nico.')
+    if (result == 'MYNAMEISNICOX'):
+        print('Test 4 OK')
+    else:
+        print('Test 4 error: ' + result)
+    # Test 5
+    result= convert_to_Caesar('My birthday is 28/03/1991.')
+    if (result == 'MYBIRTHDAYISX'):
+        print('Test 5 OK')
+    else:
+        print('Test 5 error: ' + result)
+    # Test 6
+    result= convert_to_Caesar('ABCDE')
+    if (result == 'ABCDE'):
+        print('Test 6 OK')
+    else:
+        print('Test 6 error: ' + result)
+    # Test 7
+    result= convert_to_Caesar('teacher@tafe.edu.com.au')
+    if (result == 'TEACHERTAFEXEDUXCOMXAU'):
+        print('Test 7 OK')
+    else:
+        print('Test 7 error: ' + result)
+    # Test 8
+    result= convert_to_Caesar('RRP is $89')
+    if (result == 'RRPIS'):
+        print('Test 8 OK')
+    else:
+        print('Test 8 error: ' + result)
+    # Test 9
+    result= convert_to_Caesar('Def: explanation of a word.')
+    if (result == 'DEFEXPLANATIONOFAWORDX'):
+        print('Test 9 OK')
+    else:
+        print('Test 9 error: ' + result)
+    # Test 10
+    result= convert_to_Caesar("0404 158 789")
+    if (result == ''):
+        print('Test 10 OK')
+    else:
+        print('Test 10 error: ' + result)
+    # Test 11
+    result= convert_to_Caesar("Xx .x")
+    if (result == 'XXXX'):
+        print('Test 11 OK')
+    else:
+        print('Test 11 error: ' + result)
+    
+if __name__ == '__main__':
+    main()'''
