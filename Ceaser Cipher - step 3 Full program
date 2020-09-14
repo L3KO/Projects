@@ -1,6 +1,11 @@
-                     #   TASK 3 - Final Program   #
+# Author: L3KO
+# Date: 25/08/2020
+
+                       
+                    ##   TASK 3 - Final Program   ##
  
-# convertion methode 
+ 
+# convertion method 
 def convert_to_Caesar(text):
     processed_string = ''
     for position in text:
@@ -11,9 +16,8 @@ def convert_to_Caesar(text):
     return processed_string
 
 
-# encryption methode
+# encryption method
 def encrypt_Caesar(string, shift):
- #the methode encrypt the string
   cipher = ''
   for char in string: 
     if char == ' ':
@@ -22,7 +26,7 @@ def encrypt_Caesar(string, shift):
         cipher = cipher + chr((ord(char) + shift - 65) % 26 + 65)
   return cipher
 
-# decryption methode
+# decryption method
 def decrypt_Caesar(string, shift):
   cipher = ''
   for char in string: 
@@ -32,32 +36,139 @@ def decrypt_Caesar(string, shift):
       cipher = cipher + chr((ord(char) - shift - 65) % 26 + 65)
   return cipher
 
+  
 
-####    main program    ####
+
+                    ####    main program    ####
+
 import re
+from sys import exit
+ans=True
 
 print("### Welcome to Ceaser Cipher ###\n")
-print("Select the following option\n")
-# select option Encryption or Decryption
-option=int(input("1- to Encrypt\n2- to Decrypt\n"))
-if option==1:
-    while True:
-        UserInput=input("Enter your text : ")
-        if len(UserInput) == 0:
-            print("Please enter a text !")
-        elif re.search("[a-z]" and "[A-Z]",UserInput) is None:
-            print("Make sure your text containt a letter !")
-        else:
-            break
-    shift=int(input("Enter the shift key : "))
-    convertion=convert_to_Caesar(UserInput)
-    print("The encryption : ", encrypt_Caesar(convertion, shift))
-elif option==2:
-    text = input("Enter a cipher text : ")
-    s = int(input("Enter a shift number : "))
-    print("The decryption : ", decrypt_Caesar(text, s))
-else:
-    print("Please Enter valid option")
-print("\n****Thank You****")
+print("Select the following option :\n")
+
+# User menu : 
+# select option 1- Encrypt   2- Decrypt   3- Debug   4- Exit
+while ans:
+    print("\n1- Encrypt   2- Decrypt   3- Debug   4- Exit")
+    ans=input("What would you like to do? ")     
+    
+    #Encryption
+    if ans=="1":
+        UserInput=input("\nEnter your text : ")
+        #program check that the input the only a number
+        while True :
+            shift = input("Enter a shift key : ")
+            try:
+                shift = int(shift)
+                break
+            except ValueError:
+                print ("Numbers only") 
+        #convert the text input then ecrypt it with the shift key
+        convertion=convert_to_Caesar(UserInput)
+        print("The encryption : ", encrypt_Caesar(convertion, shift))
+    
+    #Decryption
+    elif ans=="2":
+        UserInput=input("\nEnter your cipher text : ")
+        #program check that the input the only a number
+        while True :
+            shift = input("Enter a shift key : ")
+            try:
+                shift = int(shift)
+                break
+            except ValueError:
+                print ("Numbers only") 
+        #convert the user cipher text then decrypt it with the shift key
+        conv=convert_to_Caesar(UserInput)
+        print("The decryption : ", decrypt_Caesar(conv, shift))
+
+    #Debug
+    elif ans=="3":
+        def main():
+            # Test 1
+            result= encrypt_Caesar('LOL', 5)
+            if (result == 'QTQ'):
+                print('\nTest 1 OK')
+            else:
+                print('Test 1 error: ' + result)
+            # Test 2
+            result= encrypt_Caesar('HELLO', 2)
+            if (result == 'JGNNQ'):
+                print('Test 2 OK')
+            else:
+                print('Test 2 error: ' + result)
+            # Test 3
+            result= encrypt_Caesar('SETGSKOY', -6)
+            if (result == 'MYNAMEIS'):
+                print('Test 3 OK')
+            else:
+                print('Test 3 error: ' + result)
+            # Test 4
+            result= encrypt_Caesar('COUCOU', 9)
+            if (result == 'LXDLXD'):
+                print('Test 4 OK')
+            else:
+                print('Test 4 error: ' + result)
+            # Test 5
+            result= encrypt_Caesar('SNHT', -5)
+            if (result == 'NICO'):
+                print('Test 5 OK')
+            else:
+                print('Test 5 error: ' + result)
+            # Test 6
+            result= encrypt_Caesar('PSG', 19)
+            if (result == 'ILZ'):
+                print('Test 6 OK')
+            else:
+                print('Test 6 error: ' + result)
+            # Test 7
+            result= encrypt_Caesar('ABCDE', 1)
+            if (result == 'BCDEF'):
+                print('Test 7 OK')
+            else:
+                print('Test 7 error: ' + result)
+            # Test 8
+            result= decrypt_Caesar('LXDLXD', 9)
+            if (result == 'COUCOU'):
+                print('Test 8 OK')
+            else:
+                print('Test 8 error: ' + result)
+            # Test 9
+            result= decrypt_Caesar('SETGSKOY', 6)
+            if (result == 'MYNAMEIS'):
+                print('Test 9 OK')
+            else:
+                print('Test 9 error: ' + result)
+            # Test 10
+            result= convert_to_Caesar('My birthday is 01/01/1998.')
+            if (result == 'MYBIRTHDAYISX'):
+                print('Test 10 OK')
+            else:
+                print('Test 10 error: ' + result) 
+           
+        if __name__ == '__main__':
+            main()
+    
+    #Exit    
+    elif ans=="4":
+        print("\n            * Thank You ! *       ")
+        print("\n        **End of the program**    ")
+        ans = None
+    #Ask the user to choose a other option
+    else:
+        print("\n Please Enter valid option !!")
+        
+#End of the program        
+
+
+     
  
- 
+
+
+
+
+
+
+
